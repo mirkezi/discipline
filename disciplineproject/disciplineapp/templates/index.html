@@ -6,21 +6,23 @@
     <body>
         <header>
             <div style="border-style:solid;border-width: 2px; border-color: yellow;">
-               <center><h1 style ="margin: auto;">Benvenuto in Discipline</h1></center>
+               <center><h1 style ="margin: auto;">Welcome in Discipline</h1></center>
             </div>
         </header>
         <main style ="margin-top: 40px;">
-            <p>Al momento questa pagina serve solo per iniziare a impostare un template.</p>
-            <p>Mi aspetto di portarti tante novità da questo progetto per me così importante.
-            </p>
+            <p>At the moment this page serves only to demonstrate i was able to create a template.</p>
+            <p>It's my intention though to progress further and fast into Django framework. </p>
         </main>
         <footer>
-            <p>Utenti attualmente registrati:</p>
+            <p>User registred:</p>
             <ul>
                 {% for user in users%}
                 <li>{{ user.username }}</li>
                 {% endfor %}
             </ul>
+            <p></p>
+            <p>To sign up click <a href="signup">here</a></p>
+            <p>Your username will appear on homepage to welcome you even further</p>
         </footer>
     </body>
 </html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!-- Create a form where information asked will be
+        1. username
+        2. password
+     Those information will then be passed into a new User, saved into db, then shown on homepage
+        -->
+<html>
+    <head>
+        <title>Sign Up!</title>
+    </head>
+    <body>
+        <center>
+            <form method="post">
+                {% csrf_token %}
+                {{ forms.as_p }}
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username"><br><br>
+                <label for="password">Password:</label>
+                <input type="text" id="password" name="password"><br><br>
+                <button type "submit">Sign up</button>
+
+            </form>
+        </center>
+    </body>
+
+
+</html>
