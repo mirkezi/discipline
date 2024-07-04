@@ -12,7 +12,6 @@
         <center>
             <form method="post">
                 {% csrf_token %}
-                {{ forms.as_p }}
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username"><br><br>
                 <label for="password">Password:</label>
@@ -22,6 +21,4 @@
             </form>
         </center>
     </body>
-
-
 </html>
