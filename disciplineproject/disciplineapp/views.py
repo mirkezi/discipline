@@ -21,6 +21,5 @@ def signup(request):
             new_user.save()
     else:
         form = Signup()    
-        
     return render(request, 'signup.html', {'form': form})
 

@@ -7,6 +7,8 @@
 <html>
     <head>
         <title>Sign Up!</title>
+        {% load static %}
+        <link rel="stylesheet" href=" {% static 'disciplineapp/css/signup.css' %} ">
     </head>
     <body>
         <center>
@@ -17,7 +19,8 @@
                 <label for="password">Password:</label>
                 <input type="text" id="password" name="password"><br><br>
                 <button type "submit">Sign up</button>
-
+                <p></p>
+                <a href="/">Return to Homepage</a>
             </form>
         </center>
     </body>
