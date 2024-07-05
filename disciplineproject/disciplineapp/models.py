@@ -9,4 +9,5 @@ class User(models.Model):
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
-        return f"Username: {User.username}, Password: {User.password}., Active: {User.is_active}"
+        #TODO: need to fix how this is returned in admin page
+        return str(self.username)
