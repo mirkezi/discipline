@@ -2,6 +2,8 @@ from django.db import models
 
 # Create your models here.
 
+# THIS MODEL HAS BEEN OVERCOME FROM AUTHENTICATION AND AUTHORIZATION SYSTEM, WILL BE REUSED FOR FUTURE REFERENCE
+
 class User(models.Model):
     '''model for registered user'''
     username = models.CharField(max_length=20)

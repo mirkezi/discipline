@@ -6,26 +6,43 @@
         <link rel="stylesheet" href=" {% static 'disciplineapp/css/index.css' %} ">
     </head>
     <body>
-        <header>
-            <div>
-               <center><h1>Welcome in Discipline</h1></center>
-            </div>
+        <header> 
+            {% if user.is_authenticated %}
+                {%if user.is_staff == True %}
+                    <form action="">
+                        <label for="user">SUPERUSER: {{user.username}}</label>
+                        <button class="button" style="margin-left: 15px;"><a href="/admin">Admin Page</a></button>
+                        <button class="button" style="margin-left: 15px;"><a href="{% url 'logout' %}">Logout</a></button>
+                    </form> 
+                {%else%}
+                    <form action="">
+                        <label for="user">User: {{user.username}}</label>
+                        <button class="button" style="margin-left: 15px;"><a href="{% url 'logout' %}">Logout</a></button>
+                    </form>
+                {% endif %}
+            {% else %}
+                <form action="">
+                    <label for="user">Visitor</label>
+                    <button class="button" style="margin-left: 15px;"><a href="login">Sign In</a></button>
+                    <button class="button" style="margin-left: 15px;"><a href="signup">Sign Up</a></button>
+                </form>
+            {% endif %}
+            
+            <center><h1>Welcome in Discipline</h1></center>
         </header>
         <main>
-            <p>At the moment this page serves only to demonstrate i was able to create a template.</p>
+            <p>At the moment this page serves only to demonstrate i was able to create a template. </p><p><img src="{% static 'disciplineapp/images/mirko.jpg' %}" alt="Logo" style="width: 200px;height: 200px;"></p>
             <p>It's my intention though to progress further and fast into Django framework. </p>
+
+            <p>This are the registred users right now: </p>
+            <ul>
+                
+            </ul>
         </main>
         <footer>
-            <p>User registred:</p>
-            <ul>
-                {% for user in users%}
-                <li>{{ user.username }}</li>
-                {% endfor %}
-            </ul>
             <p></p>
-            <p>To sign up click <a href="signup">here</a></p>
             <p>This page is in developing stage, not obviusly ready for deployment</p>
-            <center><p style="margin-top: 100px;"><a href="admin">Admin Page</a> - Username: mirko - Password: backend91</p></center>
+            <center><p style="margin-top: 100px;">SUPERUSER: mirko / Password: backend91</p></center>
         </footer>
     </body>
 </html>

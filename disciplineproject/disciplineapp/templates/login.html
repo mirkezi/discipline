@@ -1,28 +1,24 @@
 <!DOCTYPE html>
-
 <html>
     <head>
-        <title>Sign Up!</title>
+        <title>Login</title>
         {% load static %}
-        <link rel="stylesheet" href=" {% static 'disciplineapp/css/signup.css' %} ">
+        <link rel="stylesheet" href=" {% static 'disciplineapp/css/login.css' %} ">
     </head>
     <body>
         <center>
             <form method="post">
                 {% csrf_token %}
                 <div class="container">
-                    <h1>Signup</h1>
+                    <h1>Login:</h1>
                     <label for="username"><b>Username:</b></label>
                     <input type="text" name="username" required>
                     <p></p>
-                    <label for="password1"><b>Password:</b></label>
-                    <input type="password" name="password1" required>
-                    <p></p>
-                    <label for="password2"><b>Password:</b></label>
-                    <input type="password" name="password2" required>
+                    <label for="password"><b>Password:</b></label>
+                    <input type="password" name="password" required>
                     <div>
                         <p></p>
-                        <button class="button" type="submit">Signup</button>
+                        <button class="button" type="submit">Login</button>
                     </div>
                 </div>
             </form>

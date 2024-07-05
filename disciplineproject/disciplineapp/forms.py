@@ -1,7 +1,10 @@
 '''Definition of Forms that will be implemented on website'''
-from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from django.apps import apps
 
-class Signup(forms.Form):
-    '''define the signup form '''
-    username = forms.CharField(max_length=20)
-    password = forms.CharField(max_length=20)
+User = apps.get_model('auth', 'User')
+
+class RegistrationForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ['username', 'password1', 'password2']
