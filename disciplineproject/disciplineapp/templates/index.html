@@ -3,31 +3,43 @@
     <head>
         <title>Discipline</title>
         {% load static %}
-        <link rel="stylesheet" href=" {% static 'disciplineapp/css/index.css' %} ">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <meta charset="UTF-8">
+        <!-- <link rel="stylesheet" href=" {% static 'disciplineapp/css/index.css' %} "> -->
     </head>
     <body>
         <header> 
-            {% if user.is_authenticated %}
-                {%if user.is_staff == True %}
-                    <form action="">
-                        <label for="user">SUPERUSER: {{user.username}}</label>
-                        <button class="button" style="margin-left: 15px;"><a href="/admin">Admin Page</a></button>
-                        <button class="button" style="margin-left: 15px;"><a href="{% url 'logout' %}">Logout</a></button>
-                    </form> 
-                {%else%}
-                    <form action="">
-                        <label for="user">User: {{user.username}}</label>
-                        <button class="button" style="margin-left: 15px;"><a href="{% url 'logout' %}">Logout</a></button>
-                    </form>
-                {% endif %}
-            {% else %}
-                <form action="">
-                    <label for="user">Visitor</label>
-                    <button class="button" style="margin-left: 15px;"><a href="login">Sign In</a></button>
-                    <button class="button" style="margin-left: 15px;"><a href="signup">Sign Up</a></button>
-                </form>
-            {% endif %}
-            
+            <nav class="navbar navbar-light bg-light">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                          <!-- <a class="navbar-brand" href="/">Homepage</a> -->
+                    </div>
+                </div>
+                <ul>
+                    {% if user.is_authenticated %}
+                        {%if user.is_staff == True %}
+                            <a class="btn btn-link" href="/">{{ user.username }}</a>
+                            <a class="btn btn-link" href="/admin">Admin Page</a>
+                            <a class="btn btn-link" href="{% url 'logout' %}">Logout</a>
+                        {%else%}
+                        <a class="btn btn-link" href="/">{{ user.username }}</a>
+                        <a class="btn btn-link" href="{% url 'logout' %}">Logout</a>
+                        {% endif %}
+                    {%else%}    
+                        <li>
+                            <form class="form-inline" action="{% url 'login' %}" method="post">
+                                {% csrf_token %}
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Username" name="username" >
+                                    <input type="password" class="form-control" placeholder="Password" name="password" >
+                                    <button class="btn btn-primary" type="submit">Login</button>
+                                    <a class="btn btn-link" href="{% url 'signup' %}">Sign Up</a>
+                                </div>
+                            </form>
+                        </li>
+                    {% endif %}
+                </ul>
+            </nav>
             <center><h1>Welcome in Discipline</h1></center>
         </header>
         <main>
